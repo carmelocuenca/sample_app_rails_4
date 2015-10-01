@@ -1,0 +1,30 @@
+#!/bin/bash
+yum -y update
+
+iptables -I INPUT 5 -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+service iptables save
+service iptables restart
+
+rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum -y install docker-io
+service docker start
+chkconfig docker on
+
+docker run --name some-postgres -d postgres
+
+yum -y install git
+
+cd /opt
+git clone https://github.com/carmelocuenca/sample_app_rails_4.git
+cd sample_app_rails_4
+
+cp config/database.yml.postgres config/database.yml
+echo "FROM ruby:2.0-onbuild
+RUN apt-get update && apt-get -y install nodejs
+CMD [\"/bin/bash\"]" | tee Dockerfile
+docker build -t sample_app_image .
+
+docker run --link some-postgres:db --rm -w /usr/src/app sample_app_image rake db:setup
+docker run --link some-postgres:db --rm -w /usr/src/app sample_app_image rake db:migrate
+docker run --link some-postgres:db --rm -w /usr/src/app sample_app_image rake db:populate
+docker run --link some-postgres:db -d -w /usr/src/app -p 80:3000 sample_app_image rails server
