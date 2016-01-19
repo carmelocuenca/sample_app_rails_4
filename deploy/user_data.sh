@@ -14,7 +14,7 @@ docker run --name some-postgres -e POSTGRES_PASSWORD=12345678 -e POSTGRES_USER=s
 yum -y install git
 
 cd /opt
-git clone https://github.com/ccuenca/sample_app_rails_4.git
+git clone https://github.com/carmelocuenca/sample_app_rails_4.git
 cd sample_app_rails_4
 
 cp config/database.yml.postgres config/database.yml
