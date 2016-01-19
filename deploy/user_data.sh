@@ -9,13 +9,12 @@ yum -y install docker-io
 service docker start
 chkconfig docker on
 
-docker run --name some-postgres -d postgres
-docker run --name some-postgres -e POSTGRES_PASSWORD=12345678 -e POSTGRES_USER=depot_app -d postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=12345678 -e POSTGRES_USER=sample_app -d postgres
 
 yum -y install git
 
 cd /opt
-git clone https://github.com/carmelocuenca/sample_app_rails_4.git
+git clone https://github.com/pquintana/sample_app_rails_4.git
 cd sample_app_rails_4
 
 cp config/database.yml.postgres config/database.yml
