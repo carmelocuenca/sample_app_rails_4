@@ -1,16 +1,15 @@
 #!/bin/bash
 yum -y update
 
-iptables -I INPUT 5 -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -I INPUT -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
 service iptables save
 service iptables restart
 
-rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 yum -y install docker-io
 service docker start
 chkconfig docker on
 
-docker run --name some-postgres -d postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=12345678 -e POSTGRES_USER=sample_app -d postgres
 
 yum -y install git
 
