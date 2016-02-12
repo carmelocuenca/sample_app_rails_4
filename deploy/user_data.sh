@@ -1,4 +1,7 @@
 #!/bin/bash
+#cloud-config
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
+
 yum -y update
 
 iptables -I INPUT -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
