@@ -1,6 +1,8 @@
 <% if @feed_items.any? %>
-  <ol class="microposts">
-    <%= render partial: 'shared/feed_item', collection: @feed_items %>
-  </ol>
-  <%= will_paginate @feed_items %>
+    <% cache [current_user,  :feed_items, page: params[:page]], skip_digest: true do %>
+      <ol class="microposts">
+        <%= render partial: 'shared/feed_item', collection: @feed_items %>
+      </ol>
+      <%= will_paginate @feed_items %>
+    <% end %>
 <% end %>
