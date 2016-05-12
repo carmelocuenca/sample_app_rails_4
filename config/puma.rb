@@ -4,7 +4,11 @@
 #
 # The default is the current directory.
 #
-directory '/vagrant/sample_app_rails_4'
+
+if ENV['RAILS_ENV'] != 'production'
+  directory '/vagrant/sample_app_rails_4'
+end
+
 
 # Use an object or block as the rack application. This allows the
 # config file to be the application itself.
