@@ -20,6 +20,10 @@ group :development, :test do
   #  gem 'childprocess', '0.3.6'
 end
 
+group :development do
+  gem 'actionpack-page_caching'
+end
+
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
@@ -55,4 +59,4 @@ group :production do
 end
 
 
-gem 'actionpack-page_caching'
+
