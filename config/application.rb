@@ -7,6 +7,8 @@
     require "sprockets/railtie"
     # require "rails/test_unit/railtie"
 
+    require "rails/observers/activerecord/active_record"
+
     # Assets should be precompiled for production (so we don't need the gems loaded then)
     Bundler.require(*Rails.groups(assets: %w(development test)))
 
@@ -27,5 +29,7 @@
         I18n.enforce_available_locales = true
 
         config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+
       end
     end

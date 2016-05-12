@@ -58,4 +58,6 @@ end
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 
+gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
+
 
