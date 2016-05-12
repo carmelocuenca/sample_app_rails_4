@@ -2,7 +2,8 @@ class StaticPagesController < ApplicationController
 
   before_action :check_logged_in, only: [:home]
 
-  caches_page :public
+  # caches_page :public
+  # caches_action :home
 
   def home
     @micropost  = current_user.microposts.build

@@ -16,6 +16,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    actionpack-action_caching (1.1.1)
+      actionpack (>= 4.0.0, < 5.0)
     actionpack-page_caching (1.0.2)
       actionpack (>= 4.0.0, < 5)
     activemodel (4.0.8)
@@ -181,6 +183,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-action_caching
   actionpack-page_caching
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.0)
