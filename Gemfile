@@ -20,9 +20,6 @@ group :development, :test do
   #  gem 'childprocess', '0.3.6'
 end
 
-group :development do
-  gem 'actionpack-page_caching'
-end
 
 group :test do
   gem 'selenium-webdriver', '2.35.1'
@@ -58,5 +55,5 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-
+gem 'actionpack-page_caching'
 
