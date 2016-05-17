@@ -19,6 +19,9 @@ group :development, :test do
   #  gem 'guard-spork', '1.5.0'
   #  gem 'childprocess', '0.3.6'
 end
+group :development do
+  gem 'byebug'
+end
 
 
 group :test do
@@ -29,10 +32,10 @@ group :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 
   # Uncomment this line on OS X.
-  gem 'growl', '1.0.3'
+  # gem 'growl', '1.0.3'
 
   # Uncomment these lines on Linux.
-  # gem 'libnotify', '0.8.0'
+  gem 'libnotify', '0.8.0'
 
   # Uncomment these lines on Windows.
   # gem 'rb-notifu', '0.0.4'
@@ -61,4 +64,4 @@ gem 'actionpack-action_caching'
 gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
 gem 'dalli'
 
-
+# gem 'dalli-store-extensions', :git => "git://github.com/defconomicron/dalli-store-extensions.git"

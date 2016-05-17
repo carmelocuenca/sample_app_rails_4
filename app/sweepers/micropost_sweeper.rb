@@ -7,6 +7,7 @@ class MicropostSweeper < ActionController::Caching::Sweeper
     end
     # it does not work with memcached
     # expire_fragment( /#{Regexp.quote(micropost.user.cache_key)}/ )
+
   end
 
   alias_method :after_create, :expire_cached_content
