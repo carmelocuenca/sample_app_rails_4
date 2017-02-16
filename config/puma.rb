@@ -6,7 +6,7 @@
 #
 
 if ENV['RAILS_ENV'] != 'production'
-  directory '/vagrant/sample_app_rails_4'
+  directory '/usr/src/app'
 end
 
 
